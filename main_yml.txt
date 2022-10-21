@@ -1,3 +1,5 @@
+# NOTES for main.yml exercise 
+
 name: Django Tutorials App Pipeline
 
 # set up how the workflow is triggered 
@@ -28,7 +30,7 @@ jobs:
       - uses: actions/checkout@v2
 
       # run single echo cmd in runners shell 
-      - run: echo Entering my first Django CI/CD Pipeline! Excited for you to see it!
+      - run: echo Entering my first Django CI/CD Pipeline!
 
       # uses action setup-python@v2, to install python version 3.9 in runner env
       - name: Set Up Python 3.9

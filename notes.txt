@@ -28,5 +28,17 @@ Exercise: CI/CD pipeline for Django application using GitHub Actions and Visual 
 
 
 # Trigger workflow # 
-- commit changes to remote repository 
-- push local to remote repository
+- commit YML file changes to remote repository 
+- create new branch, Propose new file, create pull requests
+- pull request is the event the triggers main.yml to run 
+- Run all test steps, can see results from running pytest 
+- merged pull request, deleted branch, actions tab has merge under workflow runs
+
+
+# Manually triggering workflow # 
+- able to manually trigger due to "workflow_dispatch" event to the "on" key
+- in Actions tab, select workflow, click "Run workflow" on main branch 
+- new workflow run recorded in Actions tab, can see it was manually triggered 
+
+
+# 
