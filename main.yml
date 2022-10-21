@@ -31,7 +31,7 @@ jobs:
       - run: echo Entering my first Django CI/CD Pipeline! Excited for you to see it!
 
       # uses action setup-python@v2, to install python version 3.9 in runner env
-      - name: Python 3.9 Set Up
+      - name: Set Up Python 3.9
       - uses: actions/setup-python@v2
         with:
           python-version: 3.9
