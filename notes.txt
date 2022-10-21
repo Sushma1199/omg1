@@ -41,4 +41,11 @@ Exercise: CI/CD pipeline for Django application using GitHub Actions and Visual 
 - new workflow run recorded in Actions tab, can see it was manually triggered 
 
 
-# 
+# Cause test failure #
+- pull request for code with bug in it 
+
+- on GH repository, in tutorials/ directory
+    - views.py file, commented out "def get(self, request)" function
+    - commit changes, create new branch, propose changes
+    - create pull request, go to Actions tab, failed run
+    - close pull request, deleted branch
