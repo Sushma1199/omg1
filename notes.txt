@@ -1,0 +1,5 @@
+Exercise: CI/CD pipeline for Django application using Github Actions and Visual Studio Code 
+
+- .gitignore file set up 
+- initialized app/ directory as local git repository 
+- added README.md "echo "# tutorials_workflow_demo" >> README.md"
