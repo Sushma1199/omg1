@@ -1,5 +1,32 @@
-Exercise: CI/CD pipeline for Django application using Github Actions and Visual Studio Code 
+Exercise: CI/CD pipeline for Django application using GitHub Actions and Visual Studio Code 
 
 - .gitignore file set up 
 - initialized app/ directory as local git repository 
 - added README.md "echo "# tutorials_workflow_demo" >> README.md"
+- pushed local to remote repository 
+
+
+# Set up GitHub Actions workflow # 
+- created workflow YAML file in local repository (can also be created in GitHub online editor)
+    - workflow will trigger on push/pull requests
+    - can be triggered manually (workslow_dispatch)
+    - job key created (must have name), called "build-and-test"
+        - can have many jobs in a workflow and, if so, jobs run parallel and in separate runner environments 
+    - each job has a runner environment
+        - various virtual machines hosted by GitHub (ubuntu, windows, macOS, etc)
+    - steps in a job run sequentially, optionally named, and begin with hyphen
+        - "run" and "uses" are common steps 
+        - cannot have run and uses of the same name
+        - "uses" are how we use "actions"
+        - actions can be custom made, or can come from GH Actions Marketplace
+        - actions cause runner to checkout repository in job's runner environment
+            - using to install python 3.9 in exercise 
+        - "run" step access shell in runner environment, to run CLI commands (echo and python)
+            - can provide multiple commands to "run" key by using piping cmd: " | "
+            - upgraded pip, installed python packages for this app, ran migrations, setup initial databse tables
+    - ran pytest
+
+
+# Trigger workflow # 
+- commit changes to remote repository 
+- push local to remote repository

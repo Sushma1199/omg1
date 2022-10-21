@@ -1,0 +1,51 @@
+name: Django Tutorials App Pipeline
+
+# set up how the workflow is triggered 
+on: 
+
+  # trigger workflow on push or pull requests on the main branch 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  
+  # allow triggering this workflow manually from the Actions tab 
+  workflow_dispatch:
+
+# set up the job for this workflow 
+jobs:
+  # workflow contains single job that we call "build-and-test"
+  build-and-test:
+
+    # runner environment
+    runs-on: ubuntu-latest
+
+    # CLI cmds ("run") and actions ("uses"), each step begins with hyphen -
+    steps:
+      # checks-out repository under $GITHUB_WORKSPACE, to access it 
+      - uses: actions/checkout@v2
+
+      # run single echo cmd in runners shell 
+      - run: echo Entering my first Django CI/CD Pipeline! Excited for you to see it!
+
+      # uses action setup-python@v2, to install python version 3.9 in runner env
+      - name: Python 3.9 Set Up
+      - uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
+
+      # installing dependencies in ubuntu runner environment 
+      - name: Install dependencies 
+        run |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+
+      # runs database migrations on Django app
+      - name: Run migrations 
+        run: python manage.py migrate
+
+      # runs all tests with verbose flag
+      - name: Run all tests
+        run: pytest -v
